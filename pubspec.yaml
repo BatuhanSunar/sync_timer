@@ -1,7 +1,10 @@
 name: sync_timer
 description: "Server Sync Calculator"
 version: 1.0.0
-homepage:
+
+homepage: https://github.com/BatuhanSunar/sync_timer
+repository: https://github.com/BatuhanSunar/sync_timer
+issue_tracker: https://github.com/BatuhanSunar/sync_timer/issues
 
 environment:
   sdk: ^3.8.1
