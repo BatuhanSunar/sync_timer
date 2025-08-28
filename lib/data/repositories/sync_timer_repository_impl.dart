@@ -51,4 +51,14 @@ class SyncTimerRepositoryImpl implements ISyncTimerRepository {
 
     return formatedVersion;
   }
+
+  @override
+  Future<int> getUtcNowUnixTimeMilliseconds() async {
+    DateTime now = DateTime.now().toUtc();
+    final diff = await SharedManagerUtil.instance.getServerTimeDiff();
+    final syncedDateTime = diff != null ? now.add(diff) : now;
+
+    // Unix timestamp'i milisaniye cinsinden döndür
+    return syncedDateTime.millisecondsSinceEpoch;
+  }
 }

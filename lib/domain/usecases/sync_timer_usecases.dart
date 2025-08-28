@@ -12,4 +12,8 @@ class SyncTimerUsecases {
   Future<String> getVersion() {
     return syncTimerRepository.getVersion();
   }
+
+  Future<int> getUtcNowUnixTimeMilliseconds() {
+    return syncTimerRepository.getUtcNowUnixTimeMilliseconds();
+  }
 }

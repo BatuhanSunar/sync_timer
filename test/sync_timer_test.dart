@@ -24,4 +24,18 @@ void main() {
 
     expect(version, isNotNull);
   });
+
+  test('UNIX TIMESTAMP MILLISECONDS', () async {
+    setUpSyncTimerModule();
+    final syncTimerUsecases = GetIt.instance<SyncTimerUsecases>();
+
+    final unixTimeMs = await syncTimerUsecases.getUtcNowUnixTimeMilliseconds();
+
+    expect(unixTimeMs, isNotNull);
+    expect(unixTimeMs, isA<int>());
+    expect(unixTimeMs, greaterThan(0));
+
+    // Unix timestamp milisaniye formatında olmalı (13 hane civarı olacak)
+    expect(unixTimeMs.toString().length, greaterThanOrEqualTo(13));
+  });
 }
