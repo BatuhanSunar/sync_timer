@@ -5,13 +5,13 @@ class SyncTimerUsecases {
 
   SyncTimerUsecases(this.syncTimerRepository);
 
-  Future<Duration> calculateServerTimeDiff(int serverTime) {
-    return syncTimerRepository.calculateServerTimeDiff(serverTime);
-  }
+  // Future<Duration> calculateServerTimeDiff(int serverTime) {
+  //   return syncTimerRepository.calculateServerTimeDiff(serverTime);
+  // }
 
-  Future<String> getVersion() {
-    return syncTimerRepository.getVersion();
-  }
+  // Future<String> getVersion() {
+  //   return syncTimerRepository.getVersion();
+  // }
 
   Future<int> getUtcNowUnixTimeMilliseconds() {
     return syncTimerRepository.getUtcNowUnixTimeMilliseconds();
