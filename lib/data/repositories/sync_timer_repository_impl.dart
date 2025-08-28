@@ -9,9 +9,9 @@ class SyncTimerRepositoryImpl implements ISyncTimerRepository {
   Future<Duration> calculateServerTimeDiff(int serverTime) async {
     final backendTimestampString = serverTime.toString();
 
-    if (backendTimestampString.length != 17) {
-      throw FormatException("Beklenen uzunluk 17 hane ama bu geldi: $backendTimestampString");
-    }
+    // if (backendTimestampString.length != 17) {
+    //   throw FormatException("Beklenen uzunluk 17 hane ama bu geldi: $backendTimestampString");
+    // }
 
     final year = int.parse(backendTimestampString.substring(0, 4));
     final month = int.parse(backendTimestampString.substring(4, 6));
@@ -55,10 +55,7 @@ class SyncTimerRepositoryImpl implements ISyncTimerRepository {
   @override
   Future<int> getUtcNowUnixTimeMilliseconds() async {
     DateTime now = DateTime.now().toUtc();
-    final diff = await SharedManagerUtil.instance.getServerTimeDiff();
-    final syncedDateTime = diff != null ? now.add(diff) : now;
-
     // Unix timestamp'i milisaniye cinsinden döndür
-    return syncedDateTime.millisecondsSinceEpoch;
+    return now.millisecondsSinceEpoch;
   }
 }
